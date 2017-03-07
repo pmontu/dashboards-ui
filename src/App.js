@@ -1,19 +1,55 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { Button, Grid, Row, Col, Form, FormGroup, ControlLabel, FormControl, PageHeader} from 'react-bootstrap';
+
+
+class LoginForm extends Component{
+  render(){
+    return (
+      <Form inline>
+        <FormGroup controlId="formInlineName">
+          <ControlLabel>Username</ControlLabel>
+          {' '}
+          <FormControl type="text" placeholder="admin" />
+        </FormGroup>
+        {' '}
+        <FormGroup controlId="formInlineEmail">
+          <ControlLabel>Password</ControlLabel>
+          {' '}
+          <FormControl type="password" placeholder="123" />
+        </FormGroup>
+        {' '}
+        <Button type="submit">
+          Login
+        </Button>
+      </Form>
+    )
+  }
+}
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Dashboard App</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      <Grid>
+
+        <Row className="show-grid"><Col xs={12}>{'.'}</Col></Row>
+
+        <Row className="show-grid">
+          <Col xs={5}></Col>
+          <Col xs={7}>
+            <LoginForm />
+          </Col>
+        </Row>
+
+        <Row className="show-grid">
+          <Col xs={1}></Col>
+          <Col xs={10}>
+            <PageHeader>Dashboards <small>Manage User</small></PageHeader>
+          </Col>
+          <Col xs={1}></Col>
+        </Row>
+
+      </Grid>
     );
   }
 }
